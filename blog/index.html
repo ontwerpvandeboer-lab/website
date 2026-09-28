@@ -12,37 +12,66 @@ title: Blog
   <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
 </head>
 
-<body>
+<body class="blog-page">
 
-  <main>
+  <header class="site-header">
+    <a class="brand" href="{{ '/' | relative_url }}">Ontwerp van de Boer</a>
 
-    <h1>Blog</h1>
-
-    <nav>
-      Alles · Nieuw werk · Oud werk · Idee
+    <nav class="nav">
+      <a href="{{ '/' | relative_url }}">Werk</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/' | relative_url }}#about">Over</a>
+      <a href="{{ '/' | relative_url }}#contact">Contact</a>
     </nav>
+  </header>
 
-    <section class="blog-overzicht">
+  <main class="shell">
+
+    <section class="blog-hero">
+      <p class="eyebrow">Blog</p>
+
+      <h1>
+        Werk, ideeën &<br>
+        dingen die me <em>bezighouden.</em>
+      </h1>
+
+      <div class="blog-filters">
+        <span class="active">Alles</span>
+        <span>Nieuw werk</span>
+        <span>Oud werk</span>
+        <span>Idee</span>
+      </div>
+    </section>
+
+    <section class="blog-grid">
 
       {% for post in site.posts %}
 
-        <article class="blog-item">
+      <article class="blog-card">
 
-          {% if post.image != "" %}
+        <a href="{{ post.url | relative_url }}">
+
+          {% if post.image and post.image != "" %}
+          <div class="blog-image">
             <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+          </div>
+          {% else %}
+          <div class="blog-image blog-placeholder">
+            <span>{{ post.category }}</span>
+          </div>
           {% endif %}
 
-          <p>{{ post.category }}</p>
+          <div class="blog-meta">
+            {{ post.category }} · {{ post.date | date: "%d.%m.%Y" }}
+          </div>
 
-          <h2>
-            <a href="{{ post.url | relative_url }}">
-              {{ post.title }}
-            </a>
-          </h2>
+          <h2>{{ post.title }}</h2>
 
           <p>{{ post.intro }}</p>
 
-        </article>
+        </a>
+
+      </article>
 
       {% endfor %}
 
