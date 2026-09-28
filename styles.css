@@ -549,35 +549,47 @@ body.blog-page .site-header .nav a:last-child{
 }
 /* BLOG — kleurvlakken + sticky aansluiting */
 
-/* Gebied tussen hoofdheader en blogmenu */
+/* Introvlak tussen header en blogmenu */
 body.blog-page main{
-  background:#f0f2e8;
+  background:#f8f8f3;
 }
 
-/* Blogmenu zonder boven- en onderlijn */
+/* Geen lijnen rond categorieën */
 body.blog-page .blog-filters{
   border-top:0;
   border-bottom:0;
 }
 
-/* Sticky balk exact tegen de header */
+/* Sticky categorieën direct tegen header */
 body.blog-page .blog-filter-wrap{
   top:68px;
   background:#dce3d0;
 }
 
-/* De artikelen zelf weer wit */
-body.blog-page .blog-grid{
+/* Vanaf onder het blogmenu alles wit */
+body.blog-page .blog-grid-test{
+  position:relative;
   background:#fff;
 }
 
-/* Wit vlak over volledige breedte vanaf artikelen */
-body.blog-page .blog-grid::before{
+body.blog-page .blog-grid-test::before{
   content:"";
   position:absolute;
+  top:0;
+  bottom:0;
+  left:50%;
+  width:100vw;
+  transform:translateX(-50%);
+  background:#fff;
+  z-index:0;
 }
 
-/* Mobiel: aansluiten op lagere header */
+/* Artikelen boven het witte vlak houden */
+body.blog-page .blog-card{
+  position:relative;
+  z-index:1;
+}
+
 @media(max-width:640px){
   body.blog-page .blog-filter-wrap{
     top:57px;
