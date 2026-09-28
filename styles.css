@@ -547,3 +547,39 @@ body.blog-page .site-header .nav a:last-child{
   }
 
 }
+/* BLOG — kleurvlakken + sticky aansluiting */
+
+/* Gebied tussen hoofdheader en blogmenu */
+body.blog-page main{
+  background:#f0f2e8;
+}
+
+/* Blogmenu zonder boven- en onderlijn */
+body.blog-page .blog-filters{
+  border-top:0;
+  border-bottom:0;
+}
+
+/* Sticky balk exact tegen de header */
+body.blog-page .blog-filter-wrap{
+  top:68px;
+  background:#dce3d0;
+}
+
+/* De artikelen zelf weer wit */
+body.blog-page .blog-grid{
+  background:#fff;
+}
+
+/* Wit vlak over volledige breedte vanaf artikelen */
+body.blog-page .blog-grid::before{
+  content:"";
+  position:absolute;
+}
+
+/* Mobiel: aansluiten op lagere header */
+@media(max-width:640px){
+  body.blog-page .blog-filter-wrap{
+    top:57px;
+  }
+}
