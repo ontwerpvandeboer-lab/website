@@ -80,3 +80,40 @@ window.addEventListener('resize', () => {
   }, { threshold: 0.15 });
   observer.observe(marquee);
 })();
+// Actieve navigatie op de homepage
+(() => {
+  const navLinks = [...document.querySelectorAll('.site-header .nav a')];
+
+  const werkLink = navLinks.find(link => link.getAttribute('href') === '#projecten');
+  const overLink = navLinks.find(link => link.getAttribute('href') === '#over');
+  const contactLink = navLinks.find(link => link.getAttribute('href') === '#contact');
+
+  const projecten = document.getElementById('projecten');
+  const over = document.getElementById('over');
+  const contact = document.getElementById('contact');
+
+  // Alleen uitvoeren op de homepage
+  if (!werkLink || !overLink || !contactLink || !projecten || !over || !contact) return;
+
+  function setActive(link) {
+    navLinks.forEach(item => item.classList.remove('nav-active'));
+    link.classList.add('nav-active');
+  }
+
+  function updateActiveNav() {
+    const marker = window.scrollY + window.innerHeight * 0.35;
+
+    if (marker >= contact.offsetTop) {
+      setActive(contactLink);
+    } else if (marker >= over.offsetTop) {
+      setActive(overLink);
+    } else {
+      setActive(werkLink);
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  window.addEventListener('resize', updateActiveNav);
+
+  updateActiveNav();
+})();
