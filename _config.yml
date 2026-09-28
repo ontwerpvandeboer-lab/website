@@ -1,0 +1,6 @@
+title: Ontwerp van de Boer
+description: Werk, ideeën en verhalen van Ivo de Boer
+url: "https://ontwerpvandeboer-lab.github.io"
+baseurl: "/website"
+
+permalink: /blog/:title/
