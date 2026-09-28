@@ -595,3 +595,7 @@ body.blog-page .blog-card{
     top:57px;
   }
 }
+/* Actief hoofdmenu */
+.site-header .nav a.nav-active{
+  font-weight:700;
+}
