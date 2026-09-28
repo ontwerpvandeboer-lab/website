@@ -615,3 +615,16 @@ body.blog-page .blog-large .blog-image{
     font-size:19px !important;
   }
 }}
+/* BLOG v3 — navigatie
+   -------------------------------------------------- */
+
+/* Categoriebalk over de volledige breedte */
+body.blog-page .blog-filter-wrap{
+  width:100%;
+  background:#dce3d0;
+}
+
+/* Actief item hoofdnavigatie */
+body.blog-page .site-header .nav a[href$="/blog/"]{
+  font-weight:700;
+}
