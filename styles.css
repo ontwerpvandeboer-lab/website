@@ -1,0 +1,325 @@
+:root{
+  --bg:#f5f3ee;
+  --ink:#111;
+  --muted:#6e6b64;
+  --line:#111;
+  --max:1600px;
+  --gutter:40px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.45}
+.shell{width:min(var(--max),calc(100% - (var(--gutter) * 2)));margin:auto}
+.site-header{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:flex-start;padding:18px var(--gutter);border-bottom:1px solid var(--line);background:rgba(245,243,238,.96);backdrop-filter:blur(8px)}
+.brand{font-weight:800;line-height:.9;letter-spacing:-.03em;text-decoration:none;color:inherit;text-transform:uppercase;font-size:16px;max-width:112px}
+.nav{display:flex;gap:30px}.nav a{color:inherit;text-decoration:none;font-size:16px}.nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.hero{padding:86px 0 92px;border-bottom:1px solid var(--line)}
+.eyebrow{text-transform:uppercase;letter-spacing:.1em;font-size:15px;margin:0 0 36px}
+.hero h1{font-size:clamp(64px,8vw,132px);line-height:.88;letter-spacing:-.065em;margin:0 0 54px;max-width:1500px;font-weight:700}
+.hero h1 em{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-style:italic;letter-spacing:-.04em}
+.hero-copy{font-size:clamp(28px,2.5vw,48px);line-height:1.08;letter-spacing:-.025em;max-width:900px;margin:0}
+.projects,.about,.clients{padding:72px 0}.section-head{display:grid;grid-template-columns:1fr 2fr;gap:24px;border-top:1px solid var(--line);padding-top:14px;margin-bottom:28px}.section-head h2{margin:0;font-size:18px}.section-head p{margin:0;color:var(--muted)}
+.project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 18px;align-items:start}
+.project-card{position:relative;min-width:0}.project-trigger{all:unset;display:block;cursor:pointer;width:100%}.thumb{position:relative;aspect-ratio:4/3;display:flex;align-items:flex-end;padding:16px;background:#ddd;border:1px solid rgba(0,0,0,.12);font-size:13px;overflow:hidden}.thumb-a{background:#d7d2c6}.thumb-b{background:#d6bf88}.thumb-c{background:#b8c6a5}.thumb-d{background:#c4cab8}.thumb-e{background:#d9c7bd}.thumb-f{background:#bdc5cc}.project-card.active .thumb{box-shadow:inset 0 -4px 0 var(--ink)}
+.card-meta{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding-top:10px}.card-meta h3{font-size:20px;line-height:1.1;margin:0;max-width:75%}.card-meta span{font-size:12px;color:var(--muted);text-align:right}
+.project-detail{grid-column:1/-1;width:calc(100vw - 2px);position:relative;left:50%;transform:translateX(-50%);margin:22px 0 54px;padding:0 var(--gutter) 4px;border-top:0;background:#fff;min-width:0}
+.detail-hero{margin-top:0;height:min(39vw,480px);min-height:0}.ph{background:linear-gradient(135deg,#ece9e2,#d5d0c6);border:1px solid #c9c4ba;display:flex;align-items:flex-end;padding:14px;color:#6f6a61;font-size:12px}.ph-wide{width:100%;aspect-ratio:auto}
+.detail-copy{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:56px;row-gap:0;margin:64px 0}.detail-copy h2{font-size:clamp(34px,4vw,68px);line-height:1;letter-spacing:-.04em;margin:0;grid-row:1 / span 7}.detail-copy p{font-size:18px;max-width:700px;margin:0 0 1em}.media-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin:40px 0 56px}.media-grid .ph{min-height:260px}.media-grid .tall{min-height:520px}.span-4{grid-column:span 4}.span-5{grid-column:span 5}.span-7{grid-column:span 7}.span-8{grid-column:span 8}.caption{grid-column:span 4;padding:24px;border-top:1px solid var(--line);font-size:18px}.caption p{margin:.4em 0}.close-project{margin:0 0 44px;border:1px solid var(--ink);background:transparent;padding:12px 16px;font:inherit;cursor:pointer}
+.about{border-top:1px solid var(--line)}.about-grid{display:grid;grid-template-columns:1fr 2fr;gap:24px}.about-grid h3{font-size:clamp(36px,4.2vw,72px);line-height:1;letter-spacing:-.04em;margin:0}.about-copy{max-width:800px}.about-copy p{font-size:20px;margin:0 0 22px}.logo-strip{display:flex;gap:42px;overflow:auto;padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);white-space:nowrap;font-size:22px}
+.site-footer{background:#151515;color:#f5f3ee;padding:98px var(--gutter) 26px}.footer-inner{width:min(var(--max),100%);margin:auto}.footer-kicker{text-transform:uppercase;letter-spacing:.08em;font-size:14px;margin:0 0 34px;color:#d3d3d3}.site-footer h2{font-size:clamp(64px,8.5vw,144px);line-height:.88;letter-spacing:-.06em;margin:0 0 58px;max-width:1200px}.footer-contact{display:flex;gap:48px;flex-wrap:wrap;border-top:1px solid #666;padding-top:18px;font-size:20px}.footer-contact a{color:inherit;text-decoration:none}.footer-contact a:hover{text-decoration:underline;text-underline-offset:4px}.footer-bottom{display:flex;justify-content:space-between;border-top:1px solid #555;margin-top:86px;padding-top:18px;font-size:13px;color:#ddd}
+@media(max-width:980px){:root{--gutter:28px}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.detail-copy{grid-template-columns:1fr}.detail-copy h2{grid-row:auto}.about-grid,.section-head{grid-template-columns:1fr}.span-4,.span-5,.span-7,.span-8{grid-column:span 6}.hero h1{font-size:clamp(62px,10vw,104px)}}
+@media(max-width:640px){:root{--gutter:16px}.site-header{padding:14px 16px}.brand{font-size:14px}.nav{gap:16px;font-size:13px}.nav a{font-size:13px}.hero{padding:54px 0 68px}.hero .eyebrow{margin-bottom:24px;font-size:12px}.hero h1{font-size:55px;margin-bottom:34px}.hero-copy{font-size:27px}.project-grid{grid-template-columns:1fr;gap:34px}.project-detail{width:100vw;padding:0 16px;margin-top:18px}.detail-copy{margin:38px 0;column-gap:24px;row-gap:0}.detail-copy h2{font-size:40px}.detail-copy p,.about-copy p{font-size:18px}.media-grid{grid-template-columns:1fr;gap:12px}.span-4,.span-5,.span-7,.span-8,.caption{grid-column:1}.media-grid .ph,.media-grid .tall{min-height:280px}.about-grid h3{font-size:44px}.card-meta h3{font-size:19px}.card-meta{display:block}.card-meta span{display:block;text-align:left;margin-top:5px}.site-footer{padding:72px 16px 22px}.site-footer h2{font-size:58px}.footer-contact{gap:12px 28px;font-size:18px}.footer-bottom{margin-top:60px}}
+
+@media(max-width:640px){.detail-hero{height:58vw;min-height:220px;max-height:360px}}
+
+/* v4 refinements */
+.hero{border-bottom:0;padding-bottom:62px}
+.about{border-top:0;padding-top:42px}
+.projects{padding-top:42px}
+/* Real portfolio images keep their original proportions: no cropping. */
+.thumb:has(> img),.ph:has(> img),.detail-hero:has(> img),.media-grid .ph:has(> img){
+  aspect-ratio:auto;height:auto;min-height:0;padding:0;background:none;border:0;overflow:visible;display:block;
+}
+.thumb img,.detail-hero img,.media-grid img,.ph img{
+  display:block;width:100%;height:auto;max-width:100%;object-fit:contain;
+}
+@media(max-width:640px){
+  .hero{padding-bottom:48px}
+  .projects{padding-top:32px}
+  .about{padding-top:32px}
+  .detail-hero:has(> img){height:auto;min-height:0;max-height:none}
+}
+
+/* v5: fixed image proportions + compact single-column project copy */
+.detail-copy h2{margin-bottom:28px}
+
+/* Placeholder proportions stay fixed while the viewport changes. */
+.media-grid .ph{min-height:0;aspect-ratio:4/3}
+.media-grid .ph.tall{min-height:0;aspect-ratio:4/5}
+.detail-hero{aspect-ratio:16/6;height:auto;min-height:0}
+
+/* Real images always keep their own intrinsic proportions and are never cropped. */
+.media-grid .ph:has(> img),
+.detail-hero:has(> img),
+.thumb:has(> img){aspect-ratio:auto;height:auto;min-height:0}
+.media-grid img,.detail-hero img,.thumb img{width:100%;height:auto;object-fit:contain}
+
+@media(max-width:980px){
+  .detail-copy{display:block}
+  .detail-copy h2{margin:0 0 28px}
+  .detail-copy p{max-width:760px;margin:0 0 1em}
+}
+@media(max-width:640px){
+  .detail-copy h2{margin-bottom:24px}
+  .media-grid .ph,.media-grid .ph.tall{min-height:0}
+  .detail-hero{height:auto;min-height:0;max-height:none;aspect-ratio:16/6}
+  .detail-hero:has(> img){aspect-ratio:auto}
+}
+
+
+/* v6: exploratory editorial image rhythms per project */
+.span-6{grid-column:span 6}.span-12{grid-column:1/-1}
+.media-grid .ph.wide{aspect-ratio:3/2}
+.media-grid .ph.panorama{aspect-ratio:16/7}
+.media-grid .ph.portrait{aspect-ratio:4/5}
+/* Intrinsic proportions still win as soon as a real image is inserted. */
+.media-grid .ph.wide:has(> img),.media-grid .ph.panorama:has(> img),.media-grid .ph.portrait:has(> img){aspect-ratio:auto}
+@media(max-width:980px){.span-12{grid-column:1/-1}.span-4,.span-5,.span-6,.span-7,.span-8{grid-column:span 6}}
+@media(max-width:640px){.span-4,.span-5,.span-6,.span-7,.span-8,.span-12,.caption{grid-column:1}}
+
+/* v7: one consistent page gutter + tagline italic in the same typeface */
+.project-detail{
+  width:100%;
+  left:auto;
+  transform:none;
+  padding-left:0;
+  padding-right:0;
+}
+.hero h1 em{
+  font-family:inherit;
+  font-weight:inherit;
+  font-style:italic;
+  letter-spacing:inherit;
+}
+@media(max-width:640px){
+  .project-detail{
+    width:100%;
+    padding-left:0;
+    padding-right:0;
+  }
+}
+
+/* v8: selected project images + temporary cropped open-project hero */
+.thumb:has(> img){
+  aspect-ratio:4/3;
+  height:auto;
+  padding:0;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,.12);
+}
+.thumb > img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Temporary: use the selected overview image as a shallow crop above each open project.
+   Later this can be replaced per project with a dedicated header image. */
+.detail-hero:has(> img){
+  width:100%;
+  aspect-ratio:16/6;
+  height:auto;
+  overflow:hidden;
+  display:block;
+  background:#eee;
+}
+.detail-hero > img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Crop focus per project, easy to tune later. */
+#detail-movisie .detail-hero > img{object-position:center 52%}
+#detail-mondriaan .detail-hero > img{object-position:center 50%}
+#detail-utrecht-natuurlijk .detail-hero > img{object-position:center 48%}
+#detail-utopia .detail-hero > img{object-position:center 38%}
+#detail-52-weken .detail-hero > img{object-position:center 48%}
+#detail-aob .detail-hero > img{object-position:center 45%}
+
+@media(max-width:640px){
+  .detail-hero:has(> img){aspect-ratio:16/7;min-height:0;max-height:none}
+}
+
+
+/* v9: credits + compact client marquee */
+.project-credit{
+  font-size:16px !important;
+  color:var(--muted);
+  margin-top:.35em !important;
+}
+.clients{padding-top:42px;padding-bottom:62px;overflow:hidden}
+.clients-head{margin:0 0 18px}
+.clients-head h2{margin:0;font-size:18px}
+.client-marquee{overflow:hidden;width:100%;border-bottom:1px solid var(--line);padding:14px 0 22px}
+.client-track{display:flex;width:max-content;animation:client-drift 78s linear infinite;will-change:transform}
+.client-set{display:flex;align-items:center;gap:58px;padding-right:58px}
+.client-logo{flex:0 0 auto;display:block;max-height:58px;max-width:170px;object-fit:contain;filter:grayscale(1) contrast(1.15);mix-blend-mode:multiply}
+.client-wide{max-width:205px}
+.client-wordmark{filter:none;mix-blend-mode:normal;color:#111;font-size:25px;line-height:.9;font-weight:800;letter-spacing:-.04em;white-space:nowrap}
+.client-wordmark small{font-size:9px;line-height:1.05;letter-spacing:0;text-transform:uppercase;font-weight:700}
+.vgm-word{font-weight:500;line-height:.92}
+.cu-word{font-size:31px;letter-spacing:-.06em}
+.bk-word{font-size:35px;line-height:.7}.bk-word small{font-size:8px;display:inline-block;margin-top:7px}
+.oo-word{font-size:24px}.cath-word{font-size:25px}.eend-word{font-size:28px}
+@keyframes client-drift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.client-track{animation:none;transform:none}.client-marquee{overflow-x:auto}}
+@media(max-width:640px){
+  .clients{padding-top:28px;padding-bottom:46px}
+  .client-set{gap:38px;padding-right:38px}
+  .client-logo{max-height:46px;max-width:140px}
+  .client-wordmark{font-size:21px}
+  .cu-word{font-size:26px}.bk-word{font-size:30px}.eend-word{font-size:24px}
+  .project-credit{font-size:16px !important}
+}
+
+/* v10: opdrachtgeverlogo's */
+.clients-head{border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:4px}
+.client-logo-large{max-height:72px;max-width:205px}
+@media(max-width:720px){.client-logo-large{max-height:58px;max-width:170px}}
+
+/* Optische correcties opdrachtgeverslogo's */
+.logo-uu{max-height:108px;max-width:308px}
+.logo-movisie{max-height:70px;max-width:246px}
+.logo-utrecht-partners{max-height:49px;max-width:174px}
+.logo-oofggz{max-height:64px;max-width:187px}
+.logo-vangogh{font-size:22.5px}
+.logo-catharijne{font-size:22.5px}
+.logo-kinderopvang{clip-path:inset(2px 0 0 0)}
+@media(max-width:720px){
+  .logo-uu{max-height:87px;max-width:255px}
+  .logo-movisie{max-height:55px;max-width:168px}
+  .logo-utrecht-partners{max-height:39px;max-width:119px}
+  .logo-oofggz{max-height:51px;max-width:154px}
+  .logo-vangogh,.logo-catharijne{font-size:18.9px}
+}
+
+/* v14: focus positions for dedicated open-project header images */
+#detail-movisie .detail-hero > img{object-position:center 48%}
+#detail-mondriaan .detail-hero > img{object-position:center center}
+#detail-utrecht-natuurlijk .detail-hero > img{object-position:center 52%}
+#detail-utopia .detail-hero > img{object-position:center center}
+#detail-52-weken .detail-hero > img{object-position:center center}
+#detail-aob .detail-hero > img{object-position:center 50%}
+
+/* v15: spacing around an opened project
+   - when the first row is open, pull the following project row 10px closer
+   - when the last row is open, remove the extra closing whitespace so the
+     distance to 'Dit is Ivo' matches the closed-project state */
+.project-detail:not([hidden]) + .project-card{
+  margin-top:-10px;
+}
+.project-detail:last-child{
+  margin-bottom:0;
+}
+.project-detail:last-child .close-project{
+  margin-bottom:0;
+}
+
+
+/* v16: client logo refinements */
+.logo-aob{filter:grayscale(1) brightness(0) !important;}
+.logo-almere{filter:grayscale(1) brightness(0) !important;max-height:58px;max-width:170px;}
+.logo-vangogh{font-size:initial;max-height:52px;max-width:150px;filter:grayscale(1) brightness(0) !important;}
+.logo-utrecht-partners{max-height:44px;max-width:157px;}
+.logo-uu{max-height:119px;max-width:339px;}
+@media(max-width:720px){
+  .logo-almere{max-height:46px;max-width:140px;}
+  .logo-vangogh{max-height:42px;max-width:125px;}
+  .logo-utrecht-partners{max-height:35px;max-width:107px;}
+  .logo-uu{max-height:96px;max-width:281px;}
+}
+
+/* v19: logo strip optical spacing + logo fixes */
+.logo-vangogh{
+  filter:none !important;
+  mix-blend-mode:normal;
+}
+.logo-aob{
+  filter:grayscale(1) contrast(1.15) !important;
+  mix-blend-mode:multiply;
+}
+/* Movisie: iets meer lucht ervoor, minder erna */
+.logo-movisie{
+  margin-left:12px;
+  margin-right:-16px;
+}
+/* Minder ruimte voor deze brede woordmerken */
+.logo-kinderopvang{
+  margin-left:-14px;
+}
+.logo-utrecht-partners{
+  margin-left:-16px;
+}
+@media(max-width:720px){
+  .logo-movisie{margin-left:8px;margin-right:-11px}
+  .logo-kinderopvang{margin-left:-9px}
+  .logo-utrecht-partners{margin-left:-11px}
+}
+
+
+/* v20: supplied local AOb and Van Gogh Museum logo files */
+.logo-aob,
+.logo-vangogh{
+  filter:none !important;
+  mix-blend-mode:normal !important;
+  object-fit:contain;
+}
+.logo-aob{max-height:52px;max-width:150px;}
+.logo-vangogh{max-height:58px;max-width:155px;}
+@media(max-width:720px){
+  .logo-aob{max-height:42px;max-width:125px;}
+  .logo-vangogh{max-height:46px;max-width:130px;}
+}
+
+/* v23: final layout stability, spacing and mobile client strip */
+/* Previous v15 adjustment moved only the first card after an open detail.
+   Neutralize it so every card in a row remains aligned. */
+.project-detail:not([hidden]) + .project-card{
+  margin-top:0;
+}
+/* Reduce the distance from an open detail to the following project row by 10px
+   without shifting an individual card. */
+.project-detail:not([hidden]){
+  margin-bottom:44px;
+}
+/* When the open detail sits after the final project row, trim 30px before 'Dit is Ivo'. */
+.projects.open-on-last-row{
+  padding-bottom:42px;
+}
+@media(max-width:640px){
+  /* Raster logos with white canvases blend into one intentional white strip on mobile. */
+  .client-marquee{
+    background:#fff;
+  }
+}
+
+/* v23: keyboard accessibility */
+a:focus-visible,
+button:focus-visible,
+.project-trigger:focus-visible{
+  outline:2px solid currentColor;
+  outline-offset:4px;
+}
+.project-trigger:focus-visible .thumb{
+  outline:2px solid var(--ink);
+  outline-offset:3px;
+}
+
+/* v24: transparent local client logos + start marquee only when visible */
+@media(max-width:640px){
+  .client-marquee{background:transparent;}
+}
+.client-track.marquee-waiting{animation-play-state:paused;}
