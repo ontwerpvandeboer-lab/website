@@ -14,66 +14,128 @@ title: Blog
 
 <body class="blog-page">
 
-  <header class="site-header">
+  <header class="site-header blog-site-header">
     <a class="brand" href="{{ '/' | relative_url }}">Ontwerp van de Boer</a>
 
     <nav class="nav">
       <a href="{{ '/' | relative_url }}">Werk</a>
-      <a href="{{ '/blog/' | relative_url }}">Blog</a>
       <a href="{{ '/' | relative_url }}#about">Over</a>
       <a href="{{ '/' | relative_url }}#contact">Contact</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
     </nav>
   </header>
 
-  <main class="shell">
+  <main>
 
-    <section class="blog-hero">
-      <p class="eyebrow">Blog</p>
+    <div class="shell">
+      <section class="blog-hero">
+        <p class="eyebrow">Blog</p>
+        <h1>Van die <em>dingen…</em></h1>
+      </section>
+    </div>
 
-      <h1>
-        Werk, ideeën &<br>
-        dingen die me <em>bezighouden.</em>
-      </h1>
-
-      <div class="blog-filters">
-        <span class="active">Alles</span>
-        <span>Nieuw werk</span>
-        <span>Oud werk</span>
-        <span>Idee</span>
+    <div class="blog-filter-wrap">
+      <div class="shell">
+        <nav class="blog-filters" aria-label="Blog categorieën">
+          <span class="active">Alles</span>
+          <span>Nieuw werk</span>
+          <span>Oud werk</span>
+          <span>Idee</span>
+        </nav>
       </div>
-    </section>
+    </div>
 
-    <section class="blog-grid">
+    <section class="shell blog-grid blog-grid-test">
 
-      {% for post in site.posts %}
-
-      <article class="blog-card">
-
-        <a href="{{ post.url | relative_url }}">
-
-          {% if post.image and post.image != "" %}
-          <div class="blog-image">
-            <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+      <article class="blog-card blog-large">
+        <a href="#">
+          <div class="blog-image fake-image fake-1">
+            <span>01</span>
           </div>
-          {% else %}
-          <div class="blog-image blog-placeholder">
-            <span>{{ post.category }}</span>
-          </div>
-          {% endif %}
-
-          <div class="blog-meta">
-            {{ post.category }} · {{ post.date | date: "%d.%m.%Y" }}
-          </div>
-
-          <h2>{{ post.title }}</h2>
-
-          <p>{{ post.intro }}</p>
-
+          <div class="blog-meta">Nieuw werk · 28.09.2026</div>
+          <h2>Een project dat net van tafel komt</h2>
         </a>
-
       </article>
 
-      {% endfor %}
+      <article class="blog-card blog-small">
+        <a href="#">
+          <div class="blog-image fake-image fake-2">
+            <span>02</span>
+          </div>
+          <div class="blog-meta">Idee · 21.09.2026</div>
+          <h2>Als ik jou was</h2>
+        </a>
+      </article>
+
+      <article class="blog-card">
+        <a href="#">
+          <div class="blog-image fake-image fake-3">
+            <span>03</span>
+          </div>
+          <div class="blog-meta">Oud werk · 12.09.2026</div>
+          <h2>Teruggevonden in een oude map</h2>
+        </a>
+      </article>
+
+      <article class="blog-card">
+        <a href="#">
+          <div class="blog-image fake-image fake-4">
+            <span>04</span>
+          </div>
+          <div class="blog-meta">Idee · 02.09.2026</div>
+          <h2>Een proefballonnetje</h2>
+        </a>
+      </article>
+
+      <article class="blog-card">
+        <a href="#">
+          <div class="blog-image fake-image fake-5">
+            <span>05</span>
+          </div>
+          <div class="blog-meta">Nieuw werk · 25.08.2026</div>
+          <h2>Beeld zegt soms genoeg</h2>
+        </a>
+      </article>
+
+      <article class="blog-card blog-small">
+        <a href="#">
+          <div class="blog-image fake-image fake-6">
+            <span>06</span>
+          </div>
+          <div class="blog-meta">Idee · 14.08.2026</div>
+          <h2>Wat als we het omdraaien?</h2>
+        </a>
+      </article>
+
+      <article class="blog-card blog-large">
+        <a href="#">
+          <div class="blog-image fake-image fake-7">
+            <span>07</span>
+          </div>
+          <div class="blog-meta">Oud werk · 03.08.2026</div>
+          <h2>Dit maakte ik ooit</h2>
+        </a>
+      </article>
+
+      <article class="blog-card">
+        <a href="#">
+          <div class="blog-image fake-image fake-8">
+            <span>08</span>
+          </div>
+          <div class="blog-meta">Nieuw werk · 18.07.2026</div>
+          <h2>Vers uit de studio</h2>
+        </a>
+      </article>
+
+      <article class="blog-card">
+        <a href="#">
+          <div class="blog-image fake-image fake-9">
+            <span>09</span>
+          </div>
+          <div class="blog-meta">Idee · 06.07.2026</div>
+          <h2>Nog geen project. Misschien ooit.</h2>
+        </a>
+      </article>
 
     </section>
 
