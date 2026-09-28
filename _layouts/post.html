@@ -1,0 +1,129 @@
+deze allemaal erin slepen
+👍
+
+Perfect. Dan werkt het belangrijkste deel al: Jekyll bouwt /blog/ automatisch vanuit onze bestanden.
+
+Zie je onder de categorieën ook “Mijn eerste idee” met het tekstje “Dit is een eerste test om te kijken of mijn blog werkt”?
+
+Als dat er ook staat, gaan we nu de artikelpagina maken. Daarna kunnen we een tweede testartikel toevoegen en zul je zien dat dat vanzelf op de overzichtspagina verschijnt. Dat is het moment waarop het hele principe dat we aan het bouwen zijn echt duidelijk wordt.
+
+nee
+👀
+
+Aha, goed dat je dit laat zien. De blogpagina zelf werkt, maar Jekyll vindt ons testbericht niet. Daarom zie je wel de vaste kop en categorieën, maar niets eronder.
+
+Ik zie waarschijnlijk de oorzaak: bij Jekyll moeten bestanden in _posts een datum in de bestandsnaam hebben. Wij hebben hem test.md genoemd; dat was mijn fout.
+
+Kleine reparatie
+
+Ga in GitHub naar de map _posts en klik op test.md.
+
+Klik rechtsboven bij het bestand op het potloodje (Edit this file).
+
+Bovenaan kun je de bestandsnaam wijzigen. Maak daarvan exact:
+
+2026-09-28-mijn-eerste-idee.md
+
+De inhoud laat je verder helemaal zoals hij is.
+
+Daarna Commit changes → Commit directly to main → Commit changes.
+
+Wacht vervolgens ongeveer een minuut en ververs:
+
+je blogpagina
+
+Als het goed is verschijnt Mijn eerste idee dan onder de categorieën.
+
+En dit onthouden we meteen voor later: een blogbestand krijgt altijd:
+
+JAAR-MAAND-DAG-titel.md
+
+bijvoorbeeld:
+
+2026-10-04-oude-poster-uit-2003.md
+
+Dat is hoe Jekyll weet dat het een blogpost is.
+
+ja gelukt
+👍
+
+Mooi. Dan hebben we bewezen dat het principe werkt:
+
+één .md-bestand toevoegen → automatisch op het blogoverzicht.
+
+Nu moeten we nog zorgen dat klikken op Mijn eerste idee ook een mooie artikelpagina oplevert. Daarvoor maken we één template. Dat template gebruiken straks álle artikelen automatisch.
+
+Stap 11 — artikel-template maken
+
+Ga naar Add file → Create new file en noem het:
+
+_layouts/post.html
+
+Plak hierin:
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ page.title }} — Ontwerp van de Boer</title>
+
+  <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
+</head>
+
+<body>
+
+  <main class="blog-post">
+
+    <p>
+      <a href="{{ '/blog/' | relative_url }}">← Blog</a>
+    </p>
+
+    <p>{{ page.category }}</p>
+
+    <h1>{{ page.title }}</h1>
+
+    <p>{{ page.intro }}</p>
+
+    {% if page.image and page.image != "" %}
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    {% endif %}
+
+    <div class="blog-content">
+      {{ content }}
+    </div>
+
+  </main>
+
+</body>
+</html>
+
+Commit rechtstreeks naar main.
+
+Daarna nog één mini-aanpassing
+
+Open:
+
+_posts/2026-09-28-mijn-eerste-idee.md
+
+Klik op het potloodje en voeg helemaal bovenin, tussen de ---, deze regel toe:
+
+layout: post
+
+Dus het begin wordt:
+
+---
+layout: post
+title: "Mijn eerste idee"
+date: 2026-09-28
+category: "Idee"
+image: ""
+intro: "Dit is een eerste test om te kijken of mijn blog werkt."
+---
+
+Weer committen.
+
+Wacht daarna een minuut, ga naar je blog en klik op Mijn eerste idee.
+
+Het ziet er waarschijnlijk nog vrij kaal uit — dat is expres. Als dit werkt, is de hele technische keten klaar. Daarna stoppen we met techniek en gaan we het leukere gedeelte doen: de blog echt ontwerpen in de stijl van jouw site, inclusief fotografie, grid, typografie en de categorieknoppen.
