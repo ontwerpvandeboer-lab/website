@@ -628,3 +628,16 @@ body.blog-page .blog-filter-wrap{
 body.blog-page .site-header .nav a[href$="/blog/"]{
   font-weight:700;
 }
+ /* BLOG v4 — navigatie definitief */
+
+body.blog-page .blog-filter-wrap{
+  background:#dce3d0 !important;
+}
+
+body.blog-page .blog-site-header{
+  background:#b7c7a2 !important;
+}
+
+body.blog-page .nav a:last-child{
+  font-weight:700 !important;
+}
