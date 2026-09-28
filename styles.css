@@ -523,4 +523,95 @@ button:focus-visible,
   .blog-card h2{
     font-size:19px;
   }
+
+
+/* BLOG v2 — correcties
+   -------------------------------------------------- */
+
+/* Groene header alleen op blog */
+body.blog-page .site-header{
+  background:#b7c7a2 !important;
 }
+
+/* Blog categorieën sticky direct onder hoofdnavigatie */
+body.blog-page .blog-filter-wrap{
+  position:sticky;
+  top:69px;
+  z-index:45;
+  background:#fff;
+}
+
+/* Testgrid: 12 kolommen */
+body.blog-page .blog-grid{
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  column-gap:18px;
+  row-gap:64px;
+}
+
+/* normale artikelen = 4 kolommen */
+body.blog-page .blog-card{
+  grid-column:span 4;
+}
+
+/* grote artikelen = 8 kolommen */
+body.blog-page .blog-card.blog-large{
+  grid-column:span 8;
+}
+
+/* kleine artikelen = 4 kolommen */
+body.blog-page .blog-card.blog-small{
+  grid-column:span 4;
+}
+
+/* Titels even groot als projecttitels homepage */
+body.blog-page .blog-card h2{
+  font-size:20px !important;
+  line-height:1.1;
+  letter-spacing:0;
+  margin:5px 0 0;
+  max-width:90%;
+}
+
+/* Meta klein */
+body.blog-page .blog-meta{
+  font-size:12px;
+  line-height:1.3;
+  margin-top:10px;
+}
+
+/* Desktop: grote beelden duidelijk breder */
+body.blog-page .blog-large .blog-image{
+  aspect-ratio:16/9;
+}
+
+/* Tablet */
+@media(max-width:980px){
+  body.blog-page .blog-card,
+  body.blog-page .blog-card.blog-large,
+  body.blog-page .blog-card.blog-small{
+    grid-column:span 6;
+  }
+}
+
+/* Mobiel */
+@media(max-width:640px){
+
+  body.blog-page .blog-filter-wrap{
+    top:58px;
+  }
+
+  body.blog-page .blog-grid{
+    grid-template-columns:1fr;
+  }
+
+  body.blog-page .blog-card,
+  body.blog-page .blog-card.blog-large,
+  body.blog-page .blog-card.blog-small{
+    grid-column:1;
+  }
+
+  body.blog-page .blog-card h2{
+    font-size:19px !important;
+  }
+}}
