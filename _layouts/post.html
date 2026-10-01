@@ -3,35 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>{{ page.title }} — Ontwerp van de Boer</title>
-
+  <link rel="stylesheet" href="https://use.typekit.net/ech1wxs.css">
   <link rel="stylesheet" href="{{ '/styles.css' | relative_url }}">
 </head>
-
-<body>
+<body class="blog-page blog-post-page">
+  <header class="site-header blog-site-header">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="Ontwerp van de Boer, naar home"><span class="brand-mark" aria-hidden="true">B</span><span class="brand-name">ONTWERP<br>VAN DE BOER</span></a>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="{{ '/' | relative_url }}#projecten">Werk</a>
+      <a href="{{ '/' | relative_url }}#over">Over</a>
+      <a href="{{ '/' | relative_url }}#contact">Contact</a>
+      <a class="nav-active" href="{{ '/blog/' | relative_url }}">Blog</a>
+    </nav>
+  </header>
 
   <main class="blog-post">
-
-    <p>
-      <a href="{{ '/blog/' | relative_url }}">← Blog</a>
-    </p>
-
-    <p>{{ page.category }}</p>
-
+    <a class="blog-back" href="{{ '/blog/' | relative_url }}">← Blog</a>
+    <div class="blog-post-meta">{{ page.category }} · {{ page.date | date: "%d.%m.%Y" }}</div>
     <h1>{{ page.title }}</h1>
-
-    <p>{{ page.intro }}</p>
+    <p class="blog-post-intro">{{ page.intro }}</p>
 
     {% if page.image and page.image != "" %}
-      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+      <figure class="blog-figure blog-figure-wide"><img src="{{ page.image | relative_url }}" alt="{{ page.title }}"></figure>
     {% endif %}
 
-    <div class="blog-content">
-      {{ content }}
-    </div>
-
+    <article class="blog-content" id="blog-content">{{ content }}</article>
   </main>
 
+  <footer id="contact" class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-kicker">Een project, campagne of ingewikkeld verhaal?</p>
+      <h2>Vertel. Ik denk<br>graag mee.</h2>
+      <div class="footer-contact">
+        <a href="mailto:ivo@typetank.nl">ivo@typetank.nl</a>
+        <a href="tel:+31624112615">06 24 11 26 15</a>
+        <span>Utrecht</span>
+      </div>
+      <div class="footer-bottom"><span>© 2026 Ivo de Boer</span><a href="#" style="color:inherit;text-decoration:none">Naar boven ↑</a></div>
+    </div>
+  </footer>
+
+  <script id="blog-images" type="application/json">[
+    {% if page.image2 %}{"nr":2,"src":"{{ page.image2 | relative_url }}","alt":"{{ page.image2_alt | default: page.title | escape }}"}{% endif %}
+    {% if page.image3 %}{% if page.image2 %},{% endif %}{"nr":3,"src":"{{ page.image3 | relative_url }}","alt":"{{ page.image3_alt | default: page.title | escape }}"}{% endif %}
+    {% if page.image4 %}{% if page.image2 or page.image3 %},{% endif %}{"nr":4,"src":"{{ page.image4 | relative_url }}","alt":"{{ page.image4_alt | default: page.title | escape }}"}{% endif %}
+  ]</script>
+  <script>
+    (() => {
+      const root=document.getElementById('blog-content');
+      let images=[];
+      try{images=JSON.parse(document.getElementById('blog-images').textContent)}catch(e){}
+      const byNr=Object.fromEntries(images.map(x=>[String(x.nr),x]));
+      const token=/\[\[beeld(?:\s+(\d+))?(?:\s+(half\s+links|half\s+rechts|breed))?\]\]/gi;
+      [...root.querySelectorAll('p')].forEach(p=>{
+        const m=p.textContent.trim().match(/^\[\[beeld(?:\s+(\d+))?(?:\s+(half\s+links|half\s+rechts|breed))?\]\]$/i);
+        if(!m)return;
+        const nr=m[1]||'2', vorm=(m[2]||'breed').toLowerCase().replace(/\s+/g,'-');
+        const img=byNr[nr];
+        if(!img){p.remove();return;}
+        const fig=document.createElement('figure');
+        fig.className='blog-figure blog-figure-'+vorm;
+        fig.innerHTML='<img src="'+img.src+'" alt="'+img.alt.replace(/"/g,'&quot;')+'">';
+        p.replaceWith(fig);
+      });
+    })();
+  </script>
 </body>
 </html>
