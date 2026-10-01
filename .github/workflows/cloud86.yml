@@ -24,10 +24,12 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
-          bundler-cache: true
+
+      - name: Install Jekyll
+        run: gem install jekyll
 
       - name: Build Jekyll site for root domain
-        run: bundle exec jekyll build --baseurl "" --destination _site
+        run: jekyll build --baseurl "" --url "https://ontwerpvandeboer.nl" --destination _site
 
       - name: Publish built site to cloud86 branch
         uses: peaceiris/actions-gh-pages@v4
