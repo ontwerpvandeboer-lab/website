@@ -870,3 +870,22 @@ body.blog-page .blog-card h2{margin:5px 0 0;max-width:95%;font-size:20px;line-he
     max-width:none;
   }
 }
+
+
+/* v41: herstel standaardmarges home + blogoverzicht; v40 alleen artikelpagina */
+body:not(.blog-post-page) .shell{
+  width:min(var(--max),calc(100% - (var(--gutter) * 2)));
+  margin-left:auto;
+  margin-right:auto;
+}
+body:not(.blog-post-page) .site-header{
+  padding-left:var(--gutter);
+  padding-right:var(--gutter);
+}
+body.blog-page:not(.blog-post-page) .blog-filter-wrap .shell,
+body.blog-page:not(.blog-post-page) .blog-hero,
+body.blog-page:not(.blog-post-page) .blog-grid{
+  width:min(var(--max),calc(100% - (var(--gutter) * 2)));
+  margin-left:auto;
+  margin-right:auto;
+}
