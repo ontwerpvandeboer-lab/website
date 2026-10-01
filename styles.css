@@ -942,3 +942,10 @@ body.blog-page:not(.blog-post-page) .blog-grid{
     max-width:none !important;
   }
 }
+
+
+/* v43: artikelkop zonder teruglink, hoger en exact gelijk aan intro */
+.blog-post-page .blog-post > h1{
+  margin-top:32px !important;
+  margin-bottom:22px !important;
+}
