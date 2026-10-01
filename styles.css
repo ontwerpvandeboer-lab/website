@@ -724,3 +724,42 @@ body.blog-page .blog-card h2{margin:5px 0 0;max-width:95%;font-size:20px;line-he
     font-size:40px;
   }
 }
+
+
+/* v39: blogartikel verfijning volgens schets */
+@media(min-width:1200px){
+  .blog-post-page main.blog-post{
+    width:min(var(--max),calc(100% - 160px));
+  }
+}
+.blog-post-page .blog-back{
+  font-weight:700;
+}
+.blog-post-page .blog-back::first-letter{
+  font-size:0;
+}
+.blog-post-page .blog-post-meta{
+  display:inline-block;
+  margin-left:140px;
+  margin-bottom:12px;
+  vertical-align:baseline;
+}
+.blog-post-page .blog-back{
+  margin-bottom:38px;
+}
+.blog-post-page .blog-content .blog-figure-wide{
+  width:min(100%,800px);
+  margin-left:auto;
+  margin-right:auto;
+}
+@media(max-width:980px){
+  .blog-post-page .blog-post-meta{margin-left:80px}
+}
+@media(max-width:640px){
+  .blog-post-page .blog-post-meta{
+    display:block;
+    margin-left:0;
+    margin-top:-22px;
+    margin-bottom:18px;
+  }
+}
