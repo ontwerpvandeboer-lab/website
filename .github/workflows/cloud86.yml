@@ -29,7 +29,10 @@ jobs:
         run: gem install jekyll
 
       - name: Build Jekyll site for root domain
-        run: jekyll build --baseurl "" --url "https://ontwerpvandeboer.nl" --destination _site
+        run: |
+          cp _config.yml _config_cloud86.yml
+          printf '\nurl: "https://ontwerpvandeboer.nl"\nbaseurl: ""\n' >> _config_cloud86.yml
+          jekyll build --config _config_cloud86.yml --destination _site
 
       - name: Publish built site to cloud86 branch
         uses: peaceiris/actions-gh-pages@v4
