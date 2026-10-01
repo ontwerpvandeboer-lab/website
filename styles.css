@@ -620,3 +620,32 @@ body.blog-page .blog-card{
   .blog-figure-half-links,.blog-figure-half-rechts{float:none;width:100%;max-width:none;margin:32px 0}
   .blog-content{font-size:18px}
 }
+
+
+/* v37: herstel visuele v31/v35 basis */
+body{font-family:"lft-etica",Arial,Helvetica,sans-serif}
+.site-header{background:#234711!important;color:#fff;border-bottom:0;min-height:76px;align-items:center;padding-top:12px;padding-bottom:12px}
+.site-header .brand,.site-header .nav a{color:#fff}
+.brand{display:flex;align-items:center;gap:13px;max-width:none;line-height:.9}
+.brand-name{display:block;font-size:16px;line-height:16.4px}
+.brand-mark{width:37px;height:37px;flex:0 0 37px;border:3px solid currentColor;border-radius:50%;display:grid;place-items:center;font-size:22px;line-height:1;font-weight:700}
+.site-header .nav{align-items:center}
+.hero h1,.blog-hero h1{font-family:"battery-park",sans-serif;font-weight:400;letter-spacing:-.025em;color:#00aaea}
+.hero h1 em{font-family:"battery-park",sans-serif;font-weight:400;font-style:normal;letter-spacing:inherit}
+.home-statement{font-style:italic}
+.card-meta h3,.detail-copy h2{font-weight:600}
+body.blog-page .site-header{background:#234711!important}
+body.blog-page .blog-filter-wrap{position:sticky;top:76px;background:#00aaea;min-height:76px;display:flex;align-items:center}
+body.blog-page .blog-filters{width:100%;min-height:76px;padding:0;align-items:center;gap:32px;border:0}
+body.blog-page .blog-filters a{color:#fff;text-decoration:none;font-size:16px}
+body.blog-page .blog-filters a:hover,body.blog-page .blog-filters a.active{text-decoration:underline;text-underline-offset:4px}
+body.blog-page .blog-hero{padding:72px 0 56px;background:#fff}
+body.blog-page .blog-hero .eyebrow{margin-bottom:24px}
+body.blog-page .blog-hero h1{font-size:clamp(55px,8vw,118px);line-height:.88;margin:0}
+body.blog-page .blog-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 18px;padding-top:42px}
+body.blog-page .blog-card{grid-column:span 1}
+body.blog-page .blog-image{aspect-ratio:4/3;border:1px solid rgba(0,0,0,.12)}
+body.blog-page .blog-card h2{margin:5px 0 0;max-width:95%;font-size:20px;line-height:1.1}
+.blog-intro{margin-top:8px;font-size:15px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+@media(max-width:980px){body.blog-page .blog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.site-header{min-height:66px;padding-top:9px;padding-bottom:9px}.brand-name{font-size:13px;line-height:15px}.brand-mark{width:34px;height:34px;flex-basis:34px;border-width:3px;font-size:20px}body.blog-page .blog-filter-wrap{top:66px;min-height:66px}body.blog-page .blog-filters{min-height:66px}body.blog-page .blog-grid{grid-template-columns:1fr;gap:42px}}
