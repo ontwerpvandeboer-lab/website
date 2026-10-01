@@ -889,3 +889,56 @@ body.blog-page:not(.blog-post-page) .blog-grid{
   margin-left:auto;
   margin-right:auto;
 }
+
+
+/* v42: alleen artikelpagina wijkt af; overige pagina's exact standaard shell-raster */
+body:not(.blog-post-page) .shell{
+  width:min(var(--max),calc(100% - (var(--gutter) * 2))) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+body:not(.blog-post-page) .site-header{
+  padding-left:var(--gutter) !important;
+  padding-right:var(--gutter) !important;
+}
+body.blog-page:not(.blog-post-page) .blog-hero,
+body.blog-page:not(.blog-post-page) .blog-grid{
+  width:min(var(--max),calc(100% - (var(--gutter) * 2))) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+
+/* Artikel: kop + intro vormen één gecentreerde tekstkolom */
+.blog-post-page .blog-post > h1,
+.blog-post-page .blog-post-intro{
+  position:static !important;
+  left:auto !important;
+  width:min(66.666vw,960px) !important;
+  max-width:calc(100% - (var(--gutter) * 2)) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+.blog-post-page .blog-post > h1{
+  margin-top:0 !important;
+  margin-bottom:22px !important;
+}
+.blog-post-page .blog-post-intro{
+  margin-top:0 !important;
+  margin-bottom:48px !important;
+}
+@media(max-width:980px){
+  .blog-post-page .blog-post > h1,
+  .blog-post-page .blog-post-intro,
+  .blog-post-page .blog-content{
+    width:calc(100% - 40px) !important;
+    max-width:760px !important;
+  }
+}
+@media(max-width:640px){
+  .blog-post-page .blog-post > h1,
+  .blog-post-page .blog-post-intro,
+  .blog-post-page .blog-content{
+    width:calc(100% - (var(--gutter) * 2)) !important;
+    max-width:none !important;
+  }
+}
